@@ -11,19 +11,26 @@ public class SelectionSort {
         System.out.println("정렬 후 배열: " + Arrays.toString(data));
     }
 
-    public static void selectionSort(int[] arr) {
-        int n = arr.length;
+    public static void selectionSort(int[] array) {
+        int n = array.length;
 
+        // 배열을 반복하면서 각 단계에서 최솟값을 찾음
         for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+            int lowestNumberIndex = i;
+
+            // i번째부터 배열의 끝까지 최솟값을 찾음
+            for (int j = i +1; j < n; j++) {
+                if (array[j] < array[lowestNumberIndex]) {
+                    lowestNumberIndex = j;
                 }
             }
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = temp;
+
+            // 최솟값이 현재 위치의 값과 다르면 교환
+            if (lowestNumberIndex != i) {
+                int temp = array[i];
+                array[i] = array[lowestNumberIndex];
+                array[lowestNumberIndex] = temp;
+            }
         }
     }
 }
