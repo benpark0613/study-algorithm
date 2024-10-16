@@ -1,4 +1,4 @@
-package jan;
+package jan.list;
 
 public class Node<T> {
     T data;
